@@ -39,6 +39,16 @@ android {
 
 dependencies {
 
+    implementation(libs.activity.compose)
+    implementation(libs.ui)
+    implementation(libs.ui.graphics)
+    implementation(libs.ui.preview)
+    implementation(libs.material.compose)
+    implementation(libs.navigation.compose)
+    implementation(libs.lifecycle.ktx)
+    implementation(libs.material3.android)
+    androidTestImplementation(platform(libs.compose.bom))
+
     implementation(libs.core.ktx)
     implementation(libs.compose.runtime)
     implementation(libs.appcompat)

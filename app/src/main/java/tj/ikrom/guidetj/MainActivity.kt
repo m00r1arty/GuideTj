@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import tj.ikrom.core.navigation.AppNavigation
-import tj.ikrom.guidetj.ui.theme.GuideTjTheme
+import tj.ikrom.feature.components.theme.GuideTjTheme
 
 class MainActivity : ComponentActivity() {
     private lateinit var navController: NavController

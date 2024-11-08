@@ -50,6 +50,7 @@ android {
 dependencies {
 
     implementation(project(":core:navigation"))
+    implementation(project(":feature:components"))
 
     implementation(libs.material)
     implementation(libs.compose.runtime)
@@ -66,8 +67,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.ui.test.junit4)
-    debugImplementation(libs.ui.tooling)
-    debugImplementation(libs.ui.test.manifest)
 }

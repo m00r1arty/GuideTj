@@ -1,4 +1,4 @@
-package tj.ikrom.guidetj.ui.theme
+package tj.ikrom.feature.components.theme
 
 import androidx.compose.ui.graphics.Color
 
