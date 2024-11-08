@@ -1,11 +1,12 @@
 plugins {
     alias(libs.plugins.android.library)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
     namespace = "tj.ikrom.feature.components"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24
@@ -30,14 +31,19 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    // For the components to work, you need to add this code to the builds
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
+    implementation(libs.core.ktx)
+    implementation(libs.compose.runtime)
+    implementation(libs.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.espresso.core)
 }
