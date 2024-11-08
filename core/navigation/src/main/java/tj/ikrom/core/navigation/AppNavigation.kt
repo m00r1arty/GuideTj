@@ -16,7 +16,7 @@ fun AppNavigation(
         startDestination = MAIN,
     ) {
         composable(MAIN) {
-            Screen()
+            Screen(navController)
         }
     }
 }
