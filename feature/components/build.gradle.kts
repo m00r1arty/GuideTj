@@ -38,6 +38,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:common"))
 
     implementation(libs.activity.compose)
     implementation(libs.ui)
@@ -47,6 +48,7 @@ dependencies {
     implementation(libs.navigation.compose)
     implementation(libs.lifecycle.ktx)
     implementation(libs.material3.android)
+    implementation(libs.ui.google.fonts)
     androidTestImplementation(platform(libs.compose.bom))
 
     implementation(libs.core.ktx)

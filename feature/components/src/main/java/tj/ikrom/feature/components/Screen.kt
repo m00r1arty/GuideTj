@@ -1,4 +1,4 @@
-package tj.ikrom.core.navigation
+package tj.ikrom.feature.components
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement

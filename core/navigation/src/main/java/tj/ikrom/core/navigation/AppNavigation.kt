@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import tj.ikrom.core.common.Routes.MAIN
+import tj.ikrom.feature.components.Screen
 
 @Composable
 fun AppNavigation(
