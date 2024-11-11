@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import tj.ikrom.core.common.Routes.MAIN
-import tj.ikrom.feature.components.Screen
+import tj.ikrom.feature.components.NavigationDrawer
 
 @Composable
 fun AppNavigation(
@@ -17,7 +17,7 @@ fun AppNavigation(
         startDestination = MAIN,
     ) {
         composable(MAIN) {
-            Screen(navController)
+            NavigationDrawer(navController)
         }
     }
 }
