@@ -1,5 +1,8 @@
 package tj.ikrom.feature.components
 
+import android.app.Activity
+import android.content.Context
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -18,12 +21,16 @@ import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.NavigationDrawerItemDefaults
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -31,6 +38,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.zIndex
 import androidx.navigation.NavController
 import kotlinx.coroutines.launch
 import tj.ikrom.core.common.Routes.CAMPING
@@ -43,8 +51,12 @@ import tj.ikrom.core.common.Routes.SANATORIUMS
 @Composable
 fun NavigationDrawer(
     navController: NavController,
-    currentScreen: String
+    currentScreen: String,
+    context: Context,
+    snackBarHostState: SnackbarHostState,
 ) {
+    var backPressedTime by remember { mutableLongStateOf(0L) }
+    var expanded by remember { mutableStateOf(false) }
     val items = listOf(
         NavigationItems("Города", painterResource(R.drawable.ic_cities_clicked), painterResource(R.drawable.ic_cities_unclicked)),
         NavigationItems("Санатории", painterResource(R.drawable.ic_sanatoriums_clicked), painterResource(R.drawable.ic_sanatoriums_unclicked)),
@@ -58,6 +70,27 @@ fun NavigationDrawer(
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
+
+    BackHandler {
+        val route = navController.currentBackStackEntry?.destination?.route
+        val isExitRoute = route in listOf(CITIES, SANATORIUMS, CAMPING, HIKING, GUIDE)
+
+        if (isExitRoute) {
+            val currentTime = System.currentTimeMillis()
+            if (currentTime - backPressedTime < 1000) {
+                expanded = false
+                (context as? Activity)?.finish()
+            } else {
+                backPressedTime = currentTime
+                scope.launch {
+                    snackBarHostState.showSnackbar("Нажмите еще раз, чтобы выйти из приложения")
+                }
+            }
+        } else {
+            navController.popBackStack()
+        }
+    }
+
 
     ModalNavigationDrawer(
         drawerState = drawerState,
@@ -109,6 +142,9 @@ fun NavigationDrawer(
         gesturesEnabled = true
     ) {
         Scaffold(
+            snackbarHost = {
+                SnackbarHost(hostState = snackBarHostState, Modifier.zIndex(1f))
+            },
             topBar = {
                 TopAppBar(
                     title = { Text(text = selectedScreen) },

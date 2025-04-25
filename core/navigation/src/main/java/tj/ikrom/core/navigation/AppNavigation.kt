@@ -1,6 +1,9 @@
 package tj.ikrom.core.navigation
 
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -16,24 +19,27 @@ import tj.ikrom.feature.components.NavigationDrawer
 fun AppNavigation(
     navController: NavController,
 ) {
+    val snackBarHostState = remember { SnackbarHostState() }
+    val context = LocalContext.current
+
     NavHost(
         navController = navController as NavHostController,
         startDestination = CITIES,
     ) {
         composable(CITIES) {
-            NavigationDrawer(navController, currentScreen = CITIES)
+            NavigationDrawer(navController, CITIES, context, snackBarHostState)
         }
         composable(SANATORIUMS) {
-            NavigationDrawer(navController, currentScreen = SANATORIUMS)
+            NavigationDrawer(navController, SANATORIUMS, context, snackBarHostState)
         }
         composable(CAMPING) {
-            NavigationDrawer(navController, currentScreen = CAMPING)
+            NavigationDrawer(navController, CAMPING, context, snackBarHostState)
         }
         composable(HIKING) {
-            NavigationDrawer(navController, currentScreen = HIKING)
+            NavigationDrawer(navController, HIKING, context, snackBarHostState)
         }
         composable(GUIDE) {
-            NavigationDrawer(navController, currentScreen = GUIDE)
+            NavigationDrawer(navController, GUIDE, context, snackBarHostState)
         }
     }
 }
