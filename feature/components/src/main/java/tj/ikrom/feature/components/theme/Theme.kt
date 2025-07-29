@@ -10,7 +10,7 @@ fun GuideTjTheme(
     content: @Composable () -> Unit
 ) {
     val guideTypography = GuideTypography.createGuideDefaults()
-    val guideColors = GuideColors.lightThemeColors()
+    val guideColors = GuideColors.unspecifiedColors()
 
     CompositionLocalProvider(
         LocalGuideTypography provides guideTypography,
@@ -18,14 +18,4 @@ fun GuideTjTheme(
     ) {
         MaterialTheme(content = content)
     }
-}
-
-object GuideTjTheme {
-    val typography: GuideTypography
-        @Composable
-        get() = LocalGuideTypography.current
-
-    val colors: GuideColors
-        @Composable
-        get() = LocalGuideColors.current
 }

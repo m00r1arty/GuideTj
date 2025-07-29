@@ -1,19 +1,27 @@
-package tj.ikrom.core.navigation
+package tj.ikrom.guidetj
 
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import kotlinx.coroutines.CoroutineScope
 import tj.ikrom.core.common.Routes.CAMPING
 import tj.ikrom.core.common.Routes.CITIES
 import tj.ikrom.core.common.Routes.GUIDE
 import tj.ikrom.core.common.Routes.HIKING
+import tj.ikrom.core.common.Routes.MAIN
 import tj.ikrom.core.common.Routes.SANATORIUMS
-import tj.ikrom.feature.components.NavigationDrawer
+import tj.ikrom.feature.components.Camping
+import tj.ikrom.feature.components.Cities
+import tj.ikrom.feature.components.Guide
+import tj.ikrom.feature.components.Hiking
+import tj.ikrom.feature.components.Main
+import tj.ikrom.feature.components.Sanatoriums
 
 @Composable
 fun AppNavigation(
@@ -21,25 +29,31 @@ fun AppNavigation(
 ) {
     val snackBarHostState = remember { SnackbarHostState() }
     val context = LocalContext.current
+    val scope: CoroutineScope = rememberCoroutineScope()
+
 
     NavHost(
         navController = navController as NavHostController,
-        startDestination = CITIES,
+        startDestination = MAIN,
     ) {
+        composable(MAIN) {
+            Main(navController, context, snackBarHostState, scope)
+        }
+
         composable(CITIES) {
-            NavigationDrawer(navController, CITIES, context, snackBarHostState)
+            Cities()
         }
         composable(SANATORIUMS) {
-            NavigationDrawer(navController, SANATORIUMS, context, snackBarHostState)
+            Sanatoriums()
         }
         composable(CAMPING) {
-            NavigationDrawer(navController, CAMPING, context, snackBarHostState)
+            Camping()
         }
         composable(HIKING) {
-            NavigationDrawer(navController, HIKING, context, snackBarHostState)
+            Hiking()
         }
         composable(GUIDE) {
-            NavigationDrawer(navController, GUIDE, context, snackBarHostState)
+            Guide()
         }
     }
 }

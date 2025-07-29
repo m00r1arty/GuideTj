@@ -49,21 +49,24 @@ android {
 
 dependencies {
 
-    implementation(project(":core:navigation"))
+    implementation(project(":core:common"))
     implementation(project(":feature:components"))
 
+    implementation(libs.ui)
+    implementation(libs.core.ktx)
     implementation(libs.material)
+    implementation(libs.material3)
+    implementation(libs.appcompat)
+    implementation(libs.ui.preview)
+    implementation(libs.ui.tooling)
+    implementation(libs.ui.graphics)
+    implementation(libs.lifecycle.ktx)
     implementation(libs.compose.runtime)
+    implementation(libs.activity.compose)
     implementation(libs.material.compose)
     implementation(libs.navigation.compose)
-    implementation(libs.core.ktx)
-    implementation(libs.lifecycle.ktx)
-    implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
-    implementation(libs.ui)
-    implementation(libs.ui.graphics)
-    implementation(libs.ui.preview)
-    implementation(libs.material3)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.espresso.core)
