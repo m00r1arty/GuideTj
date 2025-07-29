@@ -51,6 +51,7 @@ dependencies {
 
     implementation(project(":core:common"))
     implementation(project(":feature:components"))
+    implementation(project(":feature:main"))
 
     implementation(libs.ui)
     implementation(libs.core.ktx)

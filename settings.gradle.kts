@@ -17,3 +17,4 @@ rootProject.name = "GuideTj"
 include(":app")
 include(":core:common")
 include(":feature:components")
+include(":feature:main")

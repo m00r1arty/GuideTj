@@ -1,4 +1,4 @@
-package tj.ikrom.feature.components
+package tj.ikrom.feature.main
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement

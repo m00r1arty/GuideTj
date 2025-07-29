@@ -1,10 +1,9 @@
-package tj.ikrom.feature.components
+package tj.ikrom.feature.main
 
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import androidx.activity.compose.BackHandler
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -27,7 +26,6 @@ import androidx.compose.ui.zIndex
 import androidx.navigation.NavController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import tj.ikrom.core.common.Routes.CITIES
 import tj.ikrom.core.common.Routes.MAIN
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -41,7 +39,6 @@ fun Main(
 ) {
     var backPressedTime by remember { mutableLongStateOf(0L) }
     var expanded by remember { mutableStateOf(false) }
-
     BackHandler {
         val route = navController.currentBackStackEntry?.destination?.route
 
@@ -79,12 +76,16 @@ fun Main(
                 .padding(contentPadding)
                 .fillMaxSize()
         ) {
-            Text (
-                modifier = Modifier.clickable {
-                    navController.navigate(CITIES)
-                },
-                text = "Главный экран",
-            )
+
+//            Text (
+//                modifier = Modifier.clickable {
+//                    navController.navigate(CITIES)
+//                },
+//                text = "Главный экран",
+//            )
         }
     }
 }
+
+
+
