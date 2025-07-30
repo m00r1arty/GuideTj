@@ -1,4 +1,4 @@
-package tj.ikrom.feature.main
+package tj.ikrom.feature.main.ui
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -39,9 +39,9 @@ fun Main(
 ) {
     var backPressedTime by remember { mutableLongStateOf(0L) }
     var expanded by remember { mutableStateOf(false) }
+
     BackHandler {
         val route = navController.currentBackStackEntry?.destination?.route
-
         if (route == MAIN) {
             val currentTime = System.currentTimeMillis()
             if (currentTime - backPressedTime < 1000) {
@@ -58,7 +58,7 @@ fun Main(
         }
     }
 
-    Scaffold (
+    Scaffold(
         snackbarHost = {
             SnackbarHost(hostState = snackBarHostState, Modifier.zIndex(1f))
         },
@@ -71,21 +71,12 @@ fun Main(
     ) { contentPadding ->
         Column (
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.Top,
             modifier = Modifier
                 .padding(contentPadding)
                 .fillMaxSize()
         ) {
-
-//            Text (
-//                modifier = Modifier.clickable {
-//                    navController.navigate(CITIES)
-//                },
-//                text = "Главный экран",
-//            )
+            CarouselMultiBrowse()
         }
     }
 }
-
-
-

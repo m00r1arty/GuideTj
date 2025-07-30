@@ -16,12 +16,12 @@ import tj.ikrom.core.common.Routes.GUIDE
 import tj.ikrom.core.common.Routes.HIKING
 import tj.ikrom.core.common.Routes.MAIN
 import tj.ikrom.core.common.Routes.SANATORIUMS
-import tj.ikrom.feature.main.Camping
-import tj.ikrom.feature.main.Cities
-import tj.ikrom.feature.main.Guide
-import tj.ikrom.feature.main.Hiking
-import tj.ikrom.feature.main.Main
-import tj.ikrom.feature.main.Sanatoriums
+import tj.ikrom.feature.main.ui.Camping
+import tj.ikrom.feature.main.ui.Cities
+import tj.ikrom.feature.main.ui.Guide
+import tj.ikrom.feature.main.ui.Hiking
+import tj.ikrom.feature.main.ui.Main
+import tj.ikrom.feature.main.ui.Sanatoriums
 
 @Composable
 fun AppNavigation(

@@ -13,13 +13,12 @@ fun Color(
     alpha: Float = 1f
 ) = Color((red / 255f), (green / 255f), (blue / 255f), alpha)
 
-
-val LocalGuideColors = staticCompositionLocalOf {
-    GuideColors.unspecifiedColors()
+val LocalGuideTjColors = staticCompositionLocalOf {
+    GuideTjColors.unspecifiedColors()
 }
 
 @Immutable
-data class GuideColors(
+data class GuideTjColors(
     val primary500: Color,
     val primary400: Color,
     val primary75: Color,
@@ -35,21 +34,25 @@ data class GuideColors(
     val background: Color,
     val surface500: Color,
     val surface400: Color,
+    val surface350: Color,
     val surface300: Color,
     val basic500: Color,
     val basic300: Color,
     val basic200: Color,
+    val basic100: Color,
     val error: Color,
+    val neutral650: Color,
     val neutral600: Color,
     val neutral500: Color,
     val neutral400: Color,
     val neutral300: Color,
     val neutral200: Color,
     val neutral100: Color,
+    val neutral50: Color,
 ) {
     companion object {
-        fun lightThemeColors(): GuideColors {
-            return GuideColors(
+        fun lightThemeColors(): GuideTjColors {
+            return GuideTjColors(
                 primary500 = Color(0, 175, 102, 1f),
                 primary400 = Color(134, 225, 159, 0.16f),
                 primary75 = Color(57, 185, 128, 1f),
@@ -65,22 +68,26 @@ data class GuideColors(
                 background = Color(255, 255, 255, 1f),
                 surface500 = Color(247, 248, 249, 1f),
                 surface400 = Color(247, 186, 67, 1f),
+                surface350 = Color(239, 240, 248, 1f),
                 surface300 = Color(208, 215, 222, 1f),
                 basic500 = Color(34, 34, 34, 1f),
                 basic300 = Color(115, 120, 125, 1f),
                 basic200 = Color(155, 161, 167, 1f),
+                basic100 = Color(145, 149, 161, 1f),
                 error = Color(223, 38, 56, 1f),
+                neutral650 = Color(222, 229, 237, 1f),
                 neutral600 = Color(122, 129, 137, 1f),
                 neutral500 = Color(236, 240, 243, 1f),
                 neutral400 = Color(119, 119, 137, 1f),
                 neutral300 = Color(237, 240, 244, 1f),
                 neutral200 = Color(244, 245, 247, 1f),
-                neutral100 = Color(249, 238, 238, 1f)
+                neutral100 = Color(249, 238, 238, 1f),
+                neutral50 = Color(0, 14, 27, 1f)
             )
         }
 
-        fun unspecifiedColors(): GuideColors {
-            return GuideColors(
+        fun unspecifiedColors(): GuideTjColors {
+            return GuideTjColors(
                 primary500 = Color.Unspecified,
                 primary400 = Color.Unspecified,
                 primary75 = Color.Unspecified,
@@ -96,17 +103,21 @@ data class GuideColors(
                 background = Color.Unspecified,
                 surface500 = Color.Unspecified,
                 surface400 = Color.Unspecified,
+                surface350 = Color.Unspecified,
                 surface300 = Color.Unspecified,
                 basic500 = Color.Unspecified,
                 basic300 = Color.Unspecified,
                 basic200 = Color.Unspecified,
+                basic100 = Color.Unspecified,
                 error = Color.Unspecified,
+                neutral650 = Color.Unspecified,
                 neutral600 = Color.Unspecified,
                 neutral500 = Color.Unspecified,
                 neutral400 = Color.Unspecified,
                 neutral300 = Color.Unspecified,
                 neutral200 = Color.Unspecified,
                 neutral100 = Color.Unspecified,
+                neutral50 = Color.Unspecified,
             )
         }
     }

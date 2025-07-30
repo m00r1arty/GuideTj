@@ -39,6 +39,7 @@ android {
 
 dependencies {
     implementation(project(":core:common"))
+    implementation(project(":feature:components"))
 
     implementation(libs.activity.compose)
     implementation(libs.ui)

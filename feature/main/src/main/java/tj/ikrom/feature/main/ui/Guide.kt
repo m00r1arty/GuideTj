@@ -1,4 +1,4 @@
-package tj.ikrom.feature.main
+package tj.ikrom.feature.main.ui
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun Cities() {
+fun Guide() {
     Scaffold (modifier = Modifier.fillMaxSize()) {
         Column (
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -20,7 +20,7 @@ fun Cities() {
             modifier = Modifier.fillMaxSize()
         ) {
             Text(
-                text = "Города",
+                text = "Справочник",
             )
         }
     }
